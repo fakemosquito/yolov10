@@ -18,4 +18,5 @@ def startPredict(trainOrder):
 
 if __name__ == '__main__':
     # startTrain(epochs=4, imgsz=128)
-    startPredict(trainOrder='')
+
+    startPredict(trainOrder='12')
