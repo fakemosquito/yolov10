@@ -1,8 +1,8 @@
 
-test_3 - v1 2024-05-07 6:01pm
+321 - v4 2024-11-10 3:07am
 ==============================
 
-This dataset was exported via roboflow.com on May 7, 2024 at 10:01 AM GMT
+This dataset was exported via roboflow.com on November 15, 2024 at 6:28 AM GMT
 
 Roboflow is an end-to-end computer vision platform that helps you
 * collaborate with your team on computer vision projects
@@ -17,12 +17,10 @@ visit https://github.com/roboflow/notebooks
 
 To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
 
-The dataset includes 1000 images.
-Hfwalkh are annotated in YOLOv8 format.
+The dataset includes 1791 images.
+Tile are annotated in YOLOv11 format.
 
 The following pre-processing was applied to each image:
-* Auto-orientation of pixel data (with EXIF-orientation stripping)
-* Resize to 640x640 (Stretch)
 
 No image augmentation techniques were applied.
 
