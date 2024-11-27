@@ -1,38 +1,33 @@
-import tkinter as tk
-from tkinter import filedialog
-from tkinterdnd2 import DND_FILES, TkinterDnD
-from PIL import Image, ImageTk
 import os
-import numpy as np  # 确保导入 NumPy
-from ultralytics import YOLOv10 as YOLO  # 导入YOLO模型
 import cv2
+import numpy as np
+from PIL import Image, ImageTk
+from tkinter import filedialog
+import tkinter as tk
+from tkinterdnd2 import DND_FILES, TkinterDnD
+from ultralytics import YOLOv10 as YOLO  # 导入YOLO模型
+
 
 def open_image():
-    # 打开文件对话框选择图片
-    filepath = filedialog.askopenfilename(title="选择一张图片", filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp")])
+    filepath = filedialog.askopenfilename(
+        title="选择一张图片",
+        filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp")]
+    )
     if filepath:
         load_image(filepath)
 
 def load_image(filepath):
-    # 加载原图
     original_image = Image.open(filepath)
 
-    # 使用 YOLO 模型进行预测
     model = YOLO("runs/detect/train5/weights/best.pt")
     result = model(filepath)
-
-    # 获取处理后的图像，假设 result[0] 包含需要的信息
     processed_image = result[0].plot()
 
-    # 如果 processed_image 是 numpy 数组并且是 BGR 格式，进行转换
     if isinstance(processed_image, np.ndarray):
-        processed_image = cv2.cvtColor(processed_image, cv2.COLOR_BGR2RGB)  # 确保导入 OpenCV
+        processed_image = cv2.cvtColor(processed_image, cv2.COLOR_BGR2RGB)
         processed_image = Image.fromarray(processed_image)
 
-    # 显示原图
     display_image(original_image, original_label)
-
-    # 显示处理后的图
     display_image(processed_image, processed_label)
 
 def display_image(image, label):
@@ -57,7 +52,7 @@ def drag_and_drop(event):
 
 # 创建主窗口
 root = TkinterDnD.Tk()
-root.title("图片处理器")
+root.title("YOLOv10  ")
 root.geometry("1600x800")
 
 # 创建左侧原图显示区域
